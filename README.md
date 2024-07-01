@@ -22,52 +22,57 @@ Follow these instructions to get a copy of the project up and running on your lo
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/bouguern/spring-boot-validate-objects.git
-cd spring-boot-validate-objects
-./mvnw spring-boot:run
+	git clone https://github.com/bouguern/spring-boot-validate-objects.git
+	
+	cd spring-boot-validate-objects
 
-## Usage
-### Endpoints
+	./mvnw spring-boot:run
 
-1) Create a new post:
+	
+## API Endpoints
 
-POST http://localhost:9095/create-post
-Content-Type: application/json
+### 1. Create a New Post
 
-{
-    "content": "First Post"
-}
+- **Endpoint:** `POST /create-post`
+- **Description:** This endpoint creates a new post.
+- **Request:**
+  - **Content-Type:** application/json
+  - **Body:**
+    ```json
+    {
+        "content": "First Post"
+    }
+    ```
+  - **Example:**
+    ```bash
+    curl -X POST http://localhost:9095/create-post \
+    -H "Content-Type: application/json" \
+    -d '{
+          "content": "First Post"
+        }'
+    ```
 
-Response:
-
-Status Code: 202 Accepted
-Response Body: "POST Validated and Saved"
-
-2) 
-
-POST http://localhost:9095/create-post
-Content-Type: application/json
-
-{
-    "content": ""
-}
-
-Response:
-
-Status Code: 202 Accepted
-Response Body: "The content must not be null and must contain at least one non-whitespace character, content must be at most 500 characters, and has at least one character"
-
-3) 
-
-POST http://localhost:9095/create-post
-Content-Type: application/json
-
-{
-    "content": " " // just space
-}
+- **Responses:**
+  - **Success:**
+    - **Status Code:** 202 Accepted
+    - **Body:** "POST Validated and Saved"
+  - **Validation Error (Empty Content):**
+    - **Status Code:** 202 Accepted
+    - **Body:** "The content must not be null and must contain at least one non-whitespace character, content must be at most 500 characters, and has at least one character"
+  - **Validation Error (Whitespace Content):**
+    - **Status Code:** 202 Accepted
+    - **Body:** "The content must not be null and must contain at least one non-whitespace character"
 
 
-Response:
+## Usage Examples
 
-Status Code: 202 Accepted
-Response Body: "The content must not be null and must contain at least one non-whitespace character"
+### Create a New Post
+
+1. **Valid Content:**
+   ```http
+   POST http://localhost:9095/create-post
+   Content-Type: application/json
+
+   {
+       "content": "First Post"
+   }
