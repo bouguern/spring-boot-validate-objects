@@ -64,8 +64,6 @@ Follow these instructions to get a copy of the project up and running on your lo
     - **Body:** "The content must not be null and must contain at least one non-whitespace character"
 
 
-## Usage Examples
-
 ### Create a New Post
 
 1. **Valid Content:**
@@ -75,4 +73,22 @@ Follow these instructions to get a copy of the project up and running on your lo
 
    {
        "content": "First Post"
+   }
+
+2. **Empty Content:**
+   ```http
+   POST http://localhost:9095/create-post
+   Content-Type: application/json
+
+   {
+       "content": ""
+   }
+
+3. **Whitespace Content:**
+   ```http
+   POST http://localhost:9095/create-post
+   Content-Type: application/json
+
+   {
+       "content": " "
    }
