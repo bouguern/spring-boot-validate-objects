@@ -27,7 +27,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 	cd spring-boot-validate-objects
 
 	./mvnw spring-boot:run
-
+```
 	
 ## API Endpoints
 
@@ -74,7 +74,7 @@ Follow these instructions to get a copy of the project up and running on your lo
    {
        "content": "First Post"
    }
-
+```
 2. **Empty Content:**
    ```http
    POST http://localhost:9095/create-post
@@ -83,7 +83,7 @@ Follow these instructions to get a copy of the project up and running on your lo
    {
        "content": ""
    }
-
+```
 3. **Whitespace Content:**
    ```http
    POST http://localhost:9095/create-post
@@ -92,3 +92,4 @@ Follow these instructions to get a copy of the project up and running on your lo
    {
        "content": " "
    }
+```
