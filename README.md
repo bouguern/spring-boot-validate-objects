@@ -42,7 +42,7 @@ Follow these instructions to get a copy of the project up and running on your lo
     {
         "content": "First Post"
     }
-    ```
+    
   - **Example:**
     ```bash
     curl -X POST http://localhost:9095/create-post \
@@ -74,7 +74,7 @@ Follow these instructions to get a copy of the project up and running on your lo
    {
        "content": "First Post"
    }
-```
+
 
 2. **Empty Content:**
    ```http
@@ -82,9 +82,9 @@ Follow these instructions to get a copy of the project up and running on your lo
    Content-Type: application/json
 
    {
-       "content": " "
+       "content": ""
    }
-```
+
 2. **Whitespace Content:**
    ```http
    POST http://localhost:9095/create-post
@@ -93,4 +93,3 @@ Follow these instructions to get a copy of the project up and running on your lo
    {
        "content": " "
    }
-```
