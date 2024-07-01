@@ -75,16 +75,8 @@ Follow these instructions to get a copy of the project up and running on your lo
        "content": "First Post"
    }
 ```
-2. **Empty Content:**
-   ```http
-   POST http://localhost:9095/create-post
-   Content-Type: application/json
 
-   {
-       "content": ""
-   }
-```
-3. **Whitespace Content:**
+2. **Whitespace Content:**
    ```http
    POST http://localhost:9095/create-post
    Content-Type: application/json
